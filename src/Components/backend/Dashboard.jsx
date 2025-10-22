@@ -1,31 +1,84 @@
-import React from 'react'
-import { Header } from '../Common/Header'
-import Footer from '../Common/Footer'
+import React, { useContext } from "react";
+import { AuthContext } from "../backend/context/Auth";
+import Sidebar from "../Common/Sidebar";
+import Footer from "../Common/Footer";
+
 
 export const Dashboard = () => {
-  return (
-   <>
-    <Header/>
-    <main>
-        <div className="row">
-            <div>
-                <div className='col-md-3'>
-                    {/*sidebar*/ }
-                </div>
-                <div className='col-md-3'>
-                {/*Dashboard*/ }
-                <div className='card shadow border-0'>
-                <div className="card-body">
-                    <h4>Dashboard</h4>
-                </div>
+  const { user } = useContext(AuthContext);
 
-                </div>
-                    
-                </div>
+  return (
+    <>
+      <main className="admin-dashboard">
+        {/* ✅ Modern Sidebar */}
+        <Sidebar />
+
+        {/* 📊 Dashboard Content */}
+        <section className="dashboard-content">
+          <div className="dashboard-header">
+            <h2>Welcome Back, {user?.name || "Admin"} 👋</h2>
+            <p className="subtitle">Here’s an overview of today’s activity.</p>
+          </div>
+
+          {/* Summary Cards */}
+          <div className="cards-grid">
+            <div className="dashboard-card">
+              <h4>Total Users</h4>
+              <p className="stat-number">1,240</p>
+              <span className="trend up">▲ 8% from last week</span>
             </div>
-        </div>
-    </main>
-    <Footer/> 
-   </>
-  )
-}
+
+            <div className="dashboard-card">
+              <h4>Orders Today</h4>
+              <p className="stat-number">52</p>
+              <span className="trend down">▼ 3% from yesterday</span>
+            </div>
+
+            <div className="dashboard-card">
+              <h4>Revenue</h4>
+              <p className="stat-number">$12,480</p>
+              <span className="trend up">▲ 15% this month</span>
+            </div>
+          </div>
+
+          {/* Recent Activity Table */}
+          <div className="activity-section">
+            <h3>Recent Activity</h3>
+            <table className="activity-table">
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Activity</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Maria Santos</td>
+                  <td>Added a new product</td>
+                  <td>Oct 22, 2025</td>
+                  <td><span className="status success">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>John Cruz</td>
+                  <td>Updated profile info</td>
+                  <td>Oct 22, 2025</td>
+                  <td><span className="status pending">Pending</span></td>
+                </tr>
+                <tr>
+                  <td>Angela Reyes</td>
+                  <td>Removed a user</td>
+                  <td>Oct 21, 2025</td>
+                  <td><span className="status failed">Failed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </>
+  );
+};

@@ -8,6 +8,8 @@ import { Login } from './Components/backend/Login';
 import { Dashboard } from './Components/backend/Dashboard';
 import { ToastContainer, toast } from 'react-toastify';
 import './assets/css/style.scss'
+import { RequireAuth } from './Components/Common/RequireAuth';
+import { Users } from './Components/Common/Users';
 
 function App() {
 
@@ -20,7 +22,14 @@ function App() {
       <Route path='/About' element={<About/>}></Route>
       <Route path='/Cart' element={<Cart/>}></Route>
       <Route path='/admin/login' element={<Login/>}></Route>
-      <Route path='/admin/dashboard' element={<Dashboard/>}></Route>
+      <Route path='/admin/users' element={<Users/>}></Route>
+
+      
+      <Route path='/admin/dashboard' element={
+
+        <RequireAuth><Dashboard/></RequireAuth>
+        
+      }></Route>
      
 
       </Routes>
