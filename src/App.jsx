@@ -18,11 +18,12 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-      <Route path='/' element={<Home/>}></Route>
+      <Route path='/' element={<Login/>}></Route>
       <Route path='/About' element={<About/>}></Route>
       <Route path='/Cart' element={<Cart/>}></Route>
       <Route path='/admin/login' element={<Login/>}></Route>
       <Route path='/admin/users' element={<Users/>}></Route>
+      <Route path='/user/dashboard' element={<Home/>}></Route>
 
       
       <Route path='/admin/dashboard' element={
