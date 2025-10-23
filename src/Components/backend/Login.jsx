@@ -42,9 +42,9 @@ export const Login = () => {
 
         toast.success(`Welcome ${result.name || 'back'}!`);
 
-        if (result.role === 'admin') {
+        if (result.user.role === 'admin') {
           navigate('/admin/dashboard');
-        } else if (result.role === 'seller') {
+        } else if (result.user.role === 'seller') {
           navigate('/seller/dashboard');
         } else {
           navigate('/user/dashboard');
@@ -59,7 +59,7 @@ export const Login = () => {
 
   return (
     <>
-      {/* 🌿 Navbar Section (Design Only) */}
+     
      <nav className="navbar">
   <div className="navbar-container">
     <div className="navbar-left">
@@ -77,7 +77,7 @@ export const Login = () => {
 
       <main>
         <div className="login-page">
-          {/* Left Section: Logo */}
+       
           <div className="login-left">
             <img
               src={logo}
@@ -86,13 +86,13 @@ export const Login = () => {
             />
           </div>
 
-          {/* Right Section: Login Form */}
+      
           <div className="login-right">
             <div className="login-card">
               <form onSubmit={handleSubmit(onSubmit)}>
                 <h4 className="login-title">Login</h4>
 
-                {/* Email Field */}
+               
                 <div className="form-group">
                   <label htmlFor="email">Email</label>
                   <input
@@ -112,7 +112,7 @@ export const Login = () => {
                   )}
                 </div>
 
-                {/* Password Field */}
+             
                 <div className="form-group">
                   <label htmlFor="password">Password</label>
                   <input

@@ -11,7 +11,7 @@ export const RequireAuth = ({ children }) => {
 
   if (!isAuthenticated) {
     // Redirect to login if no user
-    return <Navigate to="/admin/login" replace />;
+    return <Navigate to="/" replace />;
   }
 
   // Otherwise, render the protected content

@@ -1,7 +1,7 @@
 import React from 'react'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { FaShoppingCart, FaFacebookF, FaInstagram, FaBell, FaQuestionCircle } from "react-icons/fa";
+import { FaUser , FaShoppingCart, FaFacebookF, FaInstagram, FaBell, FaQuestionCircle } from "react-icons/fa";
 
 export const Header = () => {
   return (
@@ -30,8 +30,10 @@ export const Header = () => {
               <a href="/help" className="text-dark text-decoration-none small d-flex align-items-center gap-1">
                 <FaQuestionCircle /> <span>Help</span>
               </a>
-              <a href="/signup" className="text-dark text-decoration-none small">Sign Up</a>
-              <a href="/signin" className="text-dark text-decoration-none small">Sign In</a>
+             
+<a href="/user/Profile" className="text-dark text-decoration-none small d-flex align-items-center gap-2">
+  <FaUser /> <span>Profile</span>
+</a>
             </div>
           </div>
         </div>
@@ -46,7 +48,7 @@ export const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto align-items-center">
-                <Nav.Link href="/" className="nav-link">HOME</Nav.Link>
+                <Nav.Link href="/user/dashboard" className="nav-link">HOME</Nav.Link>
                 <Nav.Link href="/about" className="nav-link">ABOUT US</Nav.Link>
                 <Nav.Link href="#services" className="nav-link">SERVICES</Nav.Link>
               

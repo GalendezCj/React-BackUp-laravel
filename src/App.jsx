@@ -10,6 +10,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import './assets/css/style.scss'
 import { RequireAuth } from './Components/Common/RequireAuth';
 import { Users } from './Components/Common/Users';
+import Register from './Components/backend/Register';
+import Profile from './Components/FrontendDesigns/Profile';
+import SellerDashboard from './Components/FrontendDesigns/SellerDashboard';
 
 function App() {
 
@@ -21,16 +24,27 @@ function App() {
       <Route path='/' element={<Login/>}></Route>
       <Route path='/About' element={<About/>}></Route>
       <Route path='/Cart' element={<Cart/>}></Route>
-      <Route path='/admin/login' element={<Login/>}></Route>
       <Route path='/admin/users' element={<Users/>}></Route>
-      <Route path='/user/dashboard' element={<Home/>}></Route>
-
       
-      <Route path='/admin/dashboard' element={
+      <Route path='/register' element={<Register/>}></Route>
+      <Route path='/user/profile' element={<Profile/>}></Route>
 
+      <Route path='/seller/dashboard' element={ 
+
+        <RequireAuth><SellerDashboard/></RequireAuth>
+       }></Route>
+    
+
+      <Route path='/admin/dashboard' element={
         <RequireAuth><Dashboard/></RequireAuth>
-        
       }></Route>
+
+
+      <Route path='/user/dashboard' element={
+        
+        <RequireAuth><Home/></RequireAuth>
+      }></Route>   
+      
      
 
       </Routes>

@@ -10,17 +10,17 @@ export const Dashboard = () => {
   return (
     <>
       <main className="admin-dashboard">
-        {/* ✅ Modern Sidebar */}
+    
         <Sidebar />
 
-        {/* 📊 Dashboard Content */}
+     
         <section className="dashboard-content">
           <div className="dashboard-header">
             <h2>Welcome Back, {user?.name || "Admin"} 👋</h2>
             <p className="subtitle">Here’s an overview of today’s activity.</p>
           </div>
 
-          {/* Summary Cards */}
+        
           <div className="cards-grid">
             <div className="dashboard-card">
               <h4>Total Users</h4>
@@ -41,7 +41,7 @@ export const Dashboard = () => {
             </div>
           </div>
 
-          {/* Recent Activity Table */}
+     
           <div className="activity-section">
             <h3>Recent Activity</h3>
             <table className="activity-table">

@@ -17,7 +17,7 @@ const Sidebar = () => {
 
   const handleLogout = () => {
     logout();
-    navigate("/admin/login");
+    navigate("/");
   };
 
   // Helper to set active link
